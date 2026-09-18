@@ -14,12 +14,7 @@ export default function Services() {
             Services can support your academic journey.
           </p>
         </div>
-
-        {/*
-          To add, remove or edit a service card, edit the `services` array
-          in src/config/siteConfig.js — no changes needed here.
-        */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {siteConfig.services.map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}

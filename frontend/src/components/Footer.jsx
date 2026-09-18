@@ -8,13 +8,13 @@ export default function Footer() {
   return (
     <footer className="bg-primary-900 text-primary-100">
       <div className="section-container py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        {/* Business / About */}
+
         <div>
           <div className="flex items-center gap-3 mb-4">
             <img
               src={business.logo}
               alt={`${business.shortName} logo`}
-              className="h-10 w-10 rounded-lg object-cover"
+              className="h-20 w-20 rounded-lg object-contain flex-shrink-0 bg-white"
             />
             <p className="font-heading font-bold text-white text-sm leading-tight">{business.name}</p>
           </div>
@@ -33,7 +33,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Services / Core Branding */}
         <div>
           <h4 className="text-white font-heading font-semibold mb-4">{footer.servicesHeading}</h4>
           <ul className="space-y-3">
@@ -46,7 +45,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Quick Links */}
         <div>
           <h4 className="text-white font-heading font-semibold mb-4">{footer.quickLinksHeading}</h4>
           <ul className="space-y-2.5">
@@ -60,10 +58,10 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact Info */}
         <div>
           <h4 className="text-white font-heading font-semibold mb-4">Contact Info</h4>
           <ul className="space-y-3 text-sm text-primary-200">
+            <li><a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer" className="hover:text-white">WhatsApp: {contact.whatsapp}</a></li>
             <li className="flex items-start gap-2">
               <Icon name="phone" className="w-4 h-4 mt-0.5 flex-shrink-0" />
               <a href={contact.phoneHref} className="hover:text-white transition-colors">
@@ -84,7 +82,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="section-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-primary-300 text-center sm:text-left">{footer.copyright}</p>
@@ -95,6 +92,12 @@ export default function Footer() {
               </a>
             ))}
           </div>
+        </div>
+      </div>
+      <div className="border-t border-white/10">
+        <div className="section-container py-4 flex flex-wrap items-center justify-center gap-3 text-center text-sm text-primary-200">
+          {footer.designCredit.logo && <img src={footer.designCredit.logo} alt="BizElevate logo" className="h-8 w-8 rounded-lg object-contain bg-white flex-shrink-0" loading="lazy" />}
+          <p>{footer.designCredit.text}</p>
         </div>
       </div>
     </footer>

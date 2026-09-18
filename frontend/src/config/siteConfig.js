@@ -1,60 +1,38 @@
-/**
- * ============================================================
- *  SITE CONFIGURATION FILE
- * ============================================================
- *  This is the ONLY file you need to edit for 90% of changes:
- *  business name, logo, contact info, hero text, about content,
- *  services, courses, social links and brand colors.
- *
- *  Images referenced here live in: public/images/
- *  Just replace the image file (keep the same filename) or
- *  update the path below to point to a new file.
- * ============================================================
- */
-
+// Shared site content. Image URLs start at public/ (for example, /images/logo.jpg).
 const siteConfig = {
-  // ---------------------------------------------------------
-  // BRAND / BUSINESS IDENTITY
-  // ---------------------------------------------------------
+
   business: {
     name: "AB TECH LEARNING EDUCATIONAL SERVICES",
     shortName: "AB Tech Learning",
     tagline: "Guiding Students Towards the Right Educational Path",
-    logo: "/images/logo-placeholder.png", // Replace with your logo file
+    logo: "/images/logo.jpg",
   },
 
-  // ---------------------------------------------------------
-  // NAVIGATION LINKS
-  // ---------------------------------------------------------
+  // These anchors must match section IDs. #admission is handled by Button as a popup trigger.
   nav: [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
-    { label: "Courses/Programs", href: "#courses" },
+
+    { label: "Reviews", href: "#reviews" },
     { label: "Contact", href: "#contact" },
   ],
 
   enquiryButton: {
     label: "Admission Enquiry",
-    href: "#contact",
+    href: "#admission",
   },
 
-  // ---------------------------------------------------------
-  // HERO SECTION
-  // ---------------------------------------------------------
   hero: {
     headline: "Expert Admission Counselling & Educational Guidance",
     subheadline:
       "AB TECH LEARNING EDUCATIONAL SERVICES helps students and parents make confident, well-informed decisions about admissions, open schooling, and career pathways — with honest, personalised guidance at every step.",
-    primaryButton: { label: "Get Admission Guidance", href: "#contact" },
+    primaryButton: { label: "Apply Now", href: "#admission" },
     secondaryButton: { label: "Contact Us", href: "#contact" },
-    image: "/images/hero.jpg", // Replace with your own hero image
+    image: "/images/hero.jpg",
     imageAlt: "Students receiving educational guidance",
   },
 
-  // ---------------------------------------------------------
-  // ABOUT SECTION
-  // ---------------------------------------------------------
   about: {
     heading: "About AB Tech Learning Educational Services",
     subheading: "Trusted Educational Guidance Partner",
@@ -62,140 +40,99 @@ const siteConfig = {
       "AB TECH LEARNING EDUCATIONAL SERVICES is dedicated to helping students and parents navigate the often confusing world of admissions, open schooling, and career planning. With years of hands-on experience, our counsellors provide clear, honest and personalised guidance tailored to every student's needs.",
       "We believe every student deserves access to accurate information and supportive mentorship — whether they are choosing a school, applying for admission, exploring open schooling options, or planning their next academic step. Our mission is to simplify that journey.",
     ],
+    // Verify these original template statistics before publishing.
     highlights: [
       { label: "Years of Experience", value: "10+" },
       { label: "Students Guided", value: "5000+" },
       { label: "Partner Institutions", value: "50+" },
       { label: "Support", value: "6 Days/Week" },
     ],
-    image: "/images/about.jpg", // Replace with your own about image
+    image: "/images/about.jpg",
     imageAlt: "AB Tech Learning counselling office",
   },
 
-  // ---------------------------------------------------------
-  // SERVICES SECTION
-  // Add, remove, or edit any service by editing this array.
-  // "icon" accepts: "admission", "school", "consult", "course",
-  // "career", "support" (mapped to icons in ServiceCard.jsx)
-  // ---------------------------------------------------------
+  // IDs also drive form preselection; icons must exist in components/Icons.jsx.
   services: [
     {
-      id: "service-1",
-      icon: "admission",
-      title: "Admission Counselling",
-      description:
-        "Step-by-step guidance through school, college and university admission processes, documentation and deadlines.",
-      image: "/images/service-1.jpg",
+        "id": "admission",
+        "icon": "admission",
+        "title": "Admission Counselling",
+        "description": "Guidance with school, college and university applications, eligibility, required documents and admission deadlines.",
+        "image": "/images/service-1.jpg"
     },
     {
-      id: "service-2",
-      icon: "school",
-      title: "Open School Guidance",
-      description:
-        "Complete support for open schooling registration, subject selection, exam forms and certification queries.",
-      image: "/images/service-2.jpg",
+        "id": "open-school",
+        "icon": "school",
+        "title": "Open School Guidance",
+        "description": "Support with Class 10 and Class 12 open schooling options, subject selection, registration and examination forms.",
+        "image": "/images/service-2.jpg"
     },
     {
-      id: "service-3",
-      icon: "consult",
-      title: "Educational Consultation",
-      description:
-        "One-on-one consultation sessions to help students and parents plan the right academic roadmap.",
-      image: "/images/service-3.jpg",
+        "id": "career",
+        "icon": "career",
+        "title": "Course & Career Guidance",
+        "description": "Personalised counselling to explore suitable subjects, undergraduate degrees, diplomas and skill courses based on your interests.",
+        "image": "/images/service-5.jpg"
     },
     {
-      id: "service-4",
-      icon: "course",
-      title: "Course Selection Guidance",
-      description:
-        "Personalised advice on choosing the right stream, subjects and courses based on interest and aptitude.",
-      image: "/images/service-4.jpg",
-    },
-    {
-      id: "service-5",
-      icon: "career",
-      title: "Career Guidance",
-      description:
-        "Insightful career counselling sessions to help students identify strengths and explore future career paths.",
-      image: "/images/service-5.jpg",
-    },
-    {
-      id: "service-6",
-      icon: "support",
-      title: "Student Support",
-      description:
-        "Ongoing support for academic queries, form filling, documentation and general student assistance.",
-      image: "/images/service-6.jpg",
-    },
+        "id": "student-support",
+        "icon": "support",
+        "title": "Student & Documentation Support",
+        "description": "Help with form filling, admission document checklists and academic queries throughout your application journey.",
+        "image": "/images/service-6.jpg"
+    }
+],
+
+  // These IDs are submitted to the backend; update EnquiryForm.serviceMap if they change.
+  admissionOptions: [
+    { id: "nios", title: "NIOS (Class 10 & Class 12)" },
+    { id: "bosse", title: "BOSSE (Board of Open Schooling)" },
+    { id: "ignou", title: "IGNOU (UG/PG Degrees & Diplomas)" },
+    { id: "college-admissions", title: "GUIDANCE COLLEGE ADMISSIONS" },
+    { id: "career-counselling", title: "CAREER COUNSELLING" },
+    { id: "general-guidance", title: "General Admission Guidance" },
   ],
 
-  // ---------------------------------------------------------
-  // COURSES / PROGRAMS SECTION
-  // ---------------------------------------------------------
-  courses: {
-    heading: "Courses & Programs We Guide You On",
-    subheading: "Explore the pathways our counsellors can help you with",
-    items: [
-      {
-        id: "course-1",
-        title: "Secondary & Senior Secondary (Open School)",
-        description:
-          "Guidance for students pursuing 10th and 12th through open schooling boards.",
-        image: "/images/course-1.jpg",
-      },
-      {
-        id: "course-2",
-        title: "Undergraduate Admissions",
-        description:
-          "Support in selecting and applying to the right undergraduate degree programs.",
-        image: "/images/course-2.jpg",
-      },
-      {
-        id: "course-3",
-        title: "Diploma & Skill Courses",
-        description:
-          "Guidance on diploma, certification and vocational skill-based courses.",
-        image: "/images/course-3.jpg",
-      },
-    ],
-  },
+  reviews: [
+    {
+        "name": "",
+        "text": "Really had a great Journey in Nios....Teachers Supported me and guided me at every step...not only helping me pass my exams with good marks but also Helped me through my college admissions.....there was time when I felt so demotivated, unsure of myself....but encouraged me and reminded me That I could do better....i will always be thankful for the support I got...My Nios success and confidence I have today are in many ways connected to the guidance and encouragement that I got.....\nThank you so much for the guidance and support"
+    }
+],
 
-  // ---------------------------------------------------------
-  // CONTACT SECTION
-  // ---------------------------------------------------------
   contact: {
     heading: "Get In Touch With Us",
     subheading:
       "Have a question about admissions or open schooling? Reach out — our counsellors are happy to help.",
-    phone: "+91 98765 43210",
-    phoneHref: "tel:+919876543210",
+    phone: "+91 79808 74530",
+    phoneHref: "tel:+917980874530",
+    // Replace the placeholder email and mailto link together before publishing.
     email: "info@abtechlearning.example.com",
     emailHref: "mailto:info@abtechlearning.example.com",
-    address: "123, Education Lane, Near City Centre, Your City, State, PIN - 000000",
-    whatsappHref: "https://wa.me/919876543210",
-    mapImage: "/images/map-placeholder.jpg", // Replace with an embedded Google Map iframe or image
-    mapEmbedUrl: "", // Optional: paste a Google Maps embed URL here to replace the image placeholder
+    address: "S N Banerjee Road, Phari Lane, Charnak, Barrackpore, West Bengal 700120",
+    whatsapp: "+91 82729 91870",
+    whatsappHref: "https://wa.me/918272991870",
+    // Legacy map settings; Contact currently builds a Maps search link from address.
+    mapImage: "/images/map-placeholder.jpg",
+    mapEmbedUrl: "",
   },
 
-  // ---------------------------------------------------------
-  // FOOTER
-  // ---------------------------------------------------------
   footer: {
+    designCredit: { text: "Designed and managed by BizElevate", logo: "/images/bizelevate-logo.jpg" },
     about:
       "AB TECH LEARNING EDUCATIONAL SERVICES provides trusted admission counselling and open school guidance to help students plan their academic future with confidence.",
     servicesHeading: "Our Core Services",
-    services: [
-      "ADMISSION COUNSELLING",
-      "OPEN SCHOOL GUIDANCE CUM HELP CENTRE",
-    ],
+    services: ["Admission Counselling", "Open School Guidance", "Course & Career Guidance", "Student & Documentation Support"],
     quickLinksHeading: "Quick Links",
     quickLinks: [
       { label: "Home", href: "#home" },
       { label: "About Us", href: "#about" },
       { label: "Services", href: "#services" },
-      { label: "Courses/Programs", href: "#courses" },
-      { label: "Contact", href: "#contact" },
+
+      { label: "Reviews", href: "#reviews" },
+    { label: "Contact", href: "#contact" },
     ],
+    // Replace # placeholders with real policy pages and social profile URLs.
     legalLinks: [
       { label: "Privacy Policy", href: "#" },
       { label: "Terms & Conditions", href: "#" },

@@ -7,14 +7,10 @@ export default function About() {
   return (
     <section id="about" className="section-padding bg-white">
       <div className="section-container grid lg:grid-cols-2 gap-12 items-center">
-        {/* Image - easily replaceable */}
+
         <div className="relative order-2 lg:order-1">
           <div className="rounded-xl2 overflow-hidden shadow-card aspect-[4/3]">
-            {/*
-              REPLACE IMAGE:
-              Swap public/images/about.jpg with your own image,
-              or update the path in src/config/siteConfig.js -> about.image
-            */}
+
             <img src={about.image} alt={about.imageAlt} className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="absolute -bottom-6 -right-4 sm:-right-6 bg-primary text-white rounded-xl2 p-5 shadow-xl max-w-[200px]">
@@ -23,7 +19,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Text content */}
         <div className="order-1 lg:order-2">
           <span className="eyebrow">{about.subheading}</span>
           <h2 className="section-heading mb-6">{about.heading}</h2>
