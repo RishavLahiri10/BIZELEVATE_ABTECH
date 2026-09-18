@@ -11,7 +11,7 @@ export default function Hero() {
       id="home"
       className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-b from-primary-50 via-white to-white overflow-hidden"
     >
-      {/* Decorative background shape */}
+
       <div
         className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-secondary/10 blur-3xl"
         aria-hidden="true"
@@ -22,7 +22,7 @@ export default function Hero() {
       />
 
       <div className="section-container relative grid lg:grid-cols-2 gap-12 items-center">
-        {/* Text content */}
+
         <div className="animate-fadeInUp">
           <span className="eyebrow">Admission &amp; Educational Guidance</span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary font-heading leading-tight mb-5">
@@ -51,15 +51,10 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Image area - easily replaceable */}
         <div className="relative animate-fadeIn">
           <div className="absolute -inset-4 bg-secondary/10 rounded-xl2 rotate-2 hidden sm:block" aria-hidden="true" />
           <div className="relative rounded-xl2 overflow-hidden shadow-2xl aspect-[4/3]">
-            {/*
-              REPLACE IMAGE:
-              Swap public/images/hero.jpg with your own image,
-              or update the path in src/config/siteConfig.js -> hero.image
-            */}
+
             <img
               src={hero.image}
               alt={hero.imageAlt}
@@ -68,7 +63,6 @@ export default function Hero() {
             />
           </div>
 
-          {/* Floating stat badge */}
           <div className="hidden sm:flex absolute -bottom-6 -left-6 bg-white rounded-xl shadow-card p-4 items-center gap-3 max-w-[220px]">
             <div className="bg-primary/10 rounded-lg p-2.5">
               <Icon name="admission" className="w-6 h-6 text-primary" />

@@ -16,7 +16,7 @@ export default function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-5 gap-8">
-          {/* Contact details */}
+
           <div className="lg:col-span-2 space-y-5">
             <div className="bg-white rounded-xl2 shadow-card p-6 flex items-start gap-4">
               <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -59,36 +59,19 @@ export default function Contact() {
               className="flex items-center justify-center gap-2 rounded-xl2 bg-[#25D366] text-white font-semibold px-6 py-4 shadow-card hover:brightness-95 transition"
             >
               <Icon name="whatsapp" className="w-5 h-5" />
-              Chat on WhatsApp
+              WhatsApp: {contact.whatsapp}
             </a>
 
-            {/* Map placeholder */}
-            <div className="rounded-xl2 overflow-hidden shadow-card aspect-video">
-              {contact.mapEmbedUrl ? (
-                <iframe
-                  title="Location Map"
-                  src={contact.mapEmbedUrl}
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              ) : (
-                /*
-                  REPLACE: Paste a Google Maps embed URL into
-                  siteConfig.contact.mapEmbedUrl to show a live map,
-                  or replace this placeholder image.
-                */
-                <img
-                  src={contact.mapImage}
-                  alt="Map location placeholder"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              )}
-            </div>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.address)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-xl2 bg-white border border-slate-200 p-6 text-primary font-semibold hover:underline"
+            >
+              Find this address on Google Maps <span aria-hidden="true">↗</span>
+            </a>
           </div>
 
-          {/* Contact form */}
           <div className="lg:col-span-3 bg-white rounded-xl2 shadow-card p-6 md:p-8">
             <h3 className="font-heading font-semibold text-xl text-primary mb-1">Send Us a Message</h3>
             <p className="text-sm text-slate-500 mb-6">

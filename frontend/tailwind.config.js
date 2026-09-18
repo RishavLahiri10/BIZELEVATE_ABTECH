@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-// ------------------------------------------------------------
-// BRAND COLORS - Change these hex values to re-theme the
-// entire website instantly.
-// ------------------------------------------------------------
+// Shared brand colours and typography for the Tailwind utility classes.
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {

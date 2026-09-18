@@ -1,9 +1,6 @@
 import React from "react";
 
-/**
- * Lightweight inline SVG icon set — no external icon library required.
- * Add new icons here and reference their key from siteConfig.js
- */
+// Icon keys are referenced by siteConfig.services; keep them in sync.
 const icons = {
   admission: (
     <path

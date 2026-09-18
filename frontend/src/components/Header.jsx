@@ -10,17 +10,10 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
-    window.addEventListener("scroll", onScroll);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // Prevent background scroll when mobile menu is open
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
 
   return (
     <header
@@ -28,16 +21,16 @@ export default function Header() {
         scrolled ? "bg-white/95 backdrop-blur shadow-md py-2" : "bg-white/90 backdrop-blur py-3"
       }`}
     >
-      <a href="#home" className="skip-link">
+      <a href="#main-content" className="skip-link">
         Skip to content
       </a>
       <div className="section-container flex items-center justify-between">
-        {/* Logo + Business Name */}
-        <a href="#home" className="flex items-center gap-3 min-w-0">
+
+        <a href="#home" className="flex items-center gap-3 min-w-0 flex-1 xl:flex-none xl:max-w-[420px]">
           <img
             src={siteConfig.business.logo}
             alt={`${siteConfig.business.shortName} logo`}
-            className="h-11 w-11 md:h-12 md:w-12 rounded-lg object-cover flex-shrink-0"
+            className="h-16 w-16 md:h-20 md:w-20 rounded-lg object-contain flex-shrink-0"
           />
           <div className="min-w-0 leading-tight">
             <p className="font-heading font-bold text-primary text-sm sm:text-base md:text-lg truncate">
@@ -49,8 +42,7 @@ export default function Header() {
           </div>
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
+        <nav className="hidden xl:flex items-center gap-5" aria-label="Primary">
           {siteConfig.nav.map((item) => (
             <a
               key={item.href}
@@ -67,13 +59,13 @@ export default function Header() {
             {siteConfig.enquiryButton.label}
           </Button>
 
-          {/* Mobile menu toggle */}
           <button
             type="button"
             aria-label="Toggle navigation menu"
             aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
             onClick={() => setMenuOpen((v) => !v)}
-            className="lg:hidden inline-flex items-center justify-center rounded-lg p-2 text-primary hover:bg-primary-50 transition-colors"
+            className="xl:hidden inline-flex items-center justify-center rounded-lg p-2 text-primary hover:bg-primary-50 transition-colors"
           >
             <Icon name={menuOpen ? "close" : "menu"} className="w-7 h-7" />
           </button>
